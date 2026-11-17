@@ -1,3 +1,6 @@
+Michael Dale B. Dacanay
+BSINTE 2A 
+
 ## **Recipe Box – Description**
 
 Recipe Box is a mobile application that helps users discover, save, and organize their favorite recipes. It provides an easy and convenient way to find dishes, view ingredients, and follow cooking instructions.
