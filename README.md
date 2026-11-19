@@ -7,12 +7,14 @@ Recipe Box is a mobile application that helps users discover, save, and organize
 
 ### **Features**
 
-- **Home:** Displays featured recipes.
-- **Search:** Finds recipes easily.
-- **Recipe Collection:** Shows available dishes.
-- **Favorites:** Saves favorite recipes.
-- **Recipe Details:** Displays ingredients and instructions.
-- **Profile:** Manages user information.
+- **Home Page:** Displays featured recipes.
+- **Recipe Browsing:** Finds recipes easily.
+- **Select A Recipe:** Shows available dishes.
+- **Recipe Details:** They can view its details.
+- **Ingredients:** Can check the ingredients needed to prapare.
+- **Cooking Instructions:** Provides step by step guidance.
+- **Save recipes to favorites:** Can save favorites recipes
+
 
 ### **How to Install and Run**
 
