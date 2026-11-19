@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recipe Box</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+<main class="app-shell">
+
+    <header class="topbar">
+        <div class="status">
+            <span>9:41</span>
+            <span>▮▮▮　◉　▰</span>
+        </div>
+
+        <div class="topbar-actions">
+            <span class="brand-mark">RB</span>
+
+            <button class="icon-button" id="topSearchBtn">
+                ⌕
+            </button>
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <section id="homeView" class="view active">
+
+        <div class="page-heading">
+            <p class="eyebrow">YOUR PERSONAL COOKBOOK</p>
+            <h1>Recipe Box</h1>
+        </div>
+
+        <!-- FEATURED RECIPE -->
+        <div class="featured-card">
+
+            <img id="featuredImage" src="" alt="Featured recipe">
+
+            <div class="featured-shade"></div>
+
+            <div class="featured-content">
+
+                <div class="meta-line">
+                    <span>◷ <b id="featuredTime"></b></span>
+                    <span>♧ <b id="featuredServings"></b> servings</span>
+                </div>
+
+                <h2 id="featuredTitle"></h2>
+
+                <p id="featuredSummary"></p>
+
+                <button class="text-button" id="featuredOpen">
+                    View recipe ↗
+                </button>
+
+            </div>
+        </div>
+
+        <!-- SAVED RECIPES -->
+        <div class="section-title">
+
+            <div>
+                <p class="eyebrow">A LITTLE INSPIRATION</p>
+                <h2>Saved in Box</h2>
+            </div>
+
+            <span id="recipeCount" class="count-pill"></span>
+
+        </div>
+
+        <div id="recipeList" class="recipe-list"></div>
+
+        <div class="empty-state hidden" id="emptyState">
+            <span>✧</span>
+            <h3>Your box is waiting</h3>
+            <p>Add your first recipe to get started.</p>
+        </div>
+
+    </section>
+
+    <!-- SEARCH PAGE -->
+    <section id="searchView" class="view">
+
+        <p class="eyebrow">FIND SOMETHING DELICIOUS</p>
+
+        <h1>Search</h1>
+
+        <label class="search-field">
+            <span>⌕</span>
+
+            <input
+                id="searchInput"
+                type="search"
+                placeholder="Search recipes or ingredients..."
+            >
+        </label>
+
+        <div id="searchResults" class="recipe-list"></div>
+
+    </section>
+
+    <!-- RECIPE DETAILS -->
+    <section id="detailView" class="view">
+
+        <button class="back-button" data-go="home">
+            ← Back to recipes
+        </button>
+
+        <div id="detailContent"></div>
+
+    </section>
+
+    <!-- COOKING INSTRUCTIONS -->
+    <section id="cookingView" class="view">
+
+        <div class="cooking-top">
+
+            <button class="back-button" id="exitCooking">
+                ←
+            </button>
+
+            <span id="cookingRecipeName"></span>
+
+            <span class="step-label" id="stepLabel"></span>
+
+        </div>
+
+        <div class="progress-track">
+            <div id="stepProgress"></div>
+        </div>
+
+        <p class="eyebrow">LET'S MAKE IT</p>
+
+        <h1>Instruction</h1>
+
+        <div class="cook-stats">
+
+            <div>
+                <span>Current step</span>
+                <b id="currentStep">1 / 3</b>
+            </div>
+
+            <div>
+                <span>Estimated cook time</span>
+                <b id="cookTime"></b>
+            </div>
+
+            <div>
+                <span>Servings</span>
+                <b id="cookServings"></b>
+            </div>
+
+        </div>
+
+        <article class="instruction-card">
+
+            <span class="step-number" id="bigStepNumber">01</span>
+
+            <p id="instructionText"></p>
+
+        </article>
+
+        <h3 class="small-heading">
+            Ingredients needed for this dish
+        </h3>
+
+        <div id="stepIngredients" class="ingredient-chips"></div>
+
+        <div class="cook-footer">
+            <button class="primary-button" id="nextStepBtn">
+                Next step
+            </button>
+        </div>
+
+    </section>
+
+    <!-- ADD RECIPE PAGE -->
+    <section id="addView" class="view">
+
+        <div class="form-header">
+
+            <button class="back-button" data-go="home">
+                Cancel
+            </button>
+
+            <h2>New Recipe</h2>
+
+            <button class="done-button" id="doneBtn">
+                Done
+            </button>
+
+        </div>
+
+        <div class="form-title">
+            <span class="food-icon">♨</span>
+            <h1>Add a recipe</h1>
+        </div>
+
+        <form id="recipeForm">
+
+            <label class="input-label">
+                Recipe title
+
+                <input
+                    id="newTitle"
+                    required
+                    placeholder="e.g. Creamy Garlic Pasta"
+                >
+            </label>
+
+            <div class="two-fields">
+
+                <label class="input-label">
+                    Cook time (minutes)
+
+                    <input
+                        id="newTime"
+                        type="number"
+                        min="1"
+                        value="30"
+                        required
+                    >
+                </label>
+
+                <label class="input-label">
+                    Servings
+
+                    <input
+                        id="newServings"
+                        type="number"
+                        min="1"
+                        value="2"
+                        required
+                    >
+                </label>
+
+            </div>
+
+            <label class="input-label">
+                Image URL
+
+                <input
+                    id="newImage"
+                    type="url"
+                    placeholder="https://example.com/food.jpg"
+                >
+            </label>
+
+            <label class="input-label">
+                Ingredients & quantities
+
+                <textarea
+                    id="newIngredients"
+                    rows="5"
+                    required
+                    placeholder="One ingredient per line"
+                ></textarea>
+            </label>
+
+            <label class="input-label">
+                Preparation steps in order
+
+                <textarea
+                    id="newSteps"
+                    rows="5"
+                    required
+                    placeholder="One step per line"
+                ></textarea>
+            </label>
+
+            <button class="primary-button save-button" type="submit">
+                Save recipe
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+
+        <button class="nav-item active" data-tab="home">
+            <span>▤</span>
+            <small>Recipes</small>
+        </button>
+
+        <button class="nav-item" data-tab="search">
+            <span>⌕</span>
+            <small>Search</small>
+        </button>
+
+        <button class="nav-add" data-tab="add">
+            ＋
+        </button>
+
+    </nav>
+
+</main>
+
+</body>
+</html>
